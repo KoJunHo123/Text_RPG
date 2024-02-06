@@ -1,1 +1,2 @@
 C:\Users\wnsgh\source\repos\145\TextRpg_3\x64\Debug\TextRpg_3.exe
+C:\Users\wnsgh\GitHub\Text_RPG\TextRpg_3\x64\Debug\TextRpg_3.exe

@@ -8,7 +8,6 @@ int main()
 
 	gm.Update();
 
-	int main = 0;
 
 	return 0;
 }
