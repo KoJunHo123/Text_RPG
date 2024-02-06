@@ -1,0 +1,19 @@
+﻿  Characetr.cpp
+  Destination.cpp
+  Field.cpp
+  FieldInfo.cpp
+  GameManager.cpp
+  GoblinForest.cpp
+  Inventory.cpp
+C:\Users\wnsgh\source\repos\145\TextRpg_3\Inventory.cpp(131,25): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\wnsgh\source\repos\145\TextRpg_3\Inventory.cpp(136,26): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\wnsgh\source\repos\145\TextRpg_3\Inventory.cpp(141,23): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\wnsgh\source\repos\145\TextRpg_3\Inventory.cpp(146,26): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+  Monster.cpp
+  OrcVillage.cpp
+  OrgerMountain.cpp
+  Player.cpp
+  Shop.cpp
+  main.cpp
+  코드를 생성하고 있습니다...
+  TextRpg_3.vcxproj -> C:\Users\wnsgh\source\repos\145\TextRpg_3\x64\Debug\TextRpg_3.exe

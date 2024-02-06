@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="00.GameManager">
+      <UniqueIdentifier>{8545acf5-52d2-4096-abd9-f6ee5f719666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Character">
+      <UniqueIdentifier>{906c10bb-1631-4700-99db-f64e8c5c0440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Character\01_1.Player">
+      <UniqueIdentifier>{5e2aceb0-6e36-4ef9-ae12-d80acabe7253}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Character\01_2.Monster">
+      <UniqueIdentifier>{4d23a0fb-cdda-4ac9-8666-cc12ace7b6ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Shop">
+      <UniqueIdentifier>{58cd9e19-5617-4836-9ab1-0049b9a19906}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Field">
+      <UniqueIdentifier>{ea871b29-2443-400d-a487-1a389a096fd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Destination">
+      <UniqueIdentifier>{7934e0ff-8c3a-4f4f-841c-d595f6031c23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Field\03_1. FieldInfo">
+      <UniqueIdentifier>{fe431753-c452-42fa-b64f-0508b47d340b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Field\03_1. FieldInfo\03_1_1. GoblinForest">
+      <UniqueIdentifier>{d4aeef44-98e1-4c65-a9ce-c7ae9e8e97f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Field\03_1. FieldInfo\03_1_2. OrcVillage">
+      <UniqueIdentifier>{acdba546-e080-493b-ab6b-7d3fc4205157}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Field\03_1. FieldInfo\03_1_3. OrgerMountain">
+      <UniqueIdentifier>{5e6961c2-e52e-4e8d-8d95-bbff9298776c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Inventory">
+      <UniqueIdentifier>{bac97eee-c8fb-441f-835e-5a67daf51d34}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>00.GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Characetr.cpp">
+      <Filter>01.Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>01.Character\01_1.Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>01.Character\01_2.Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Field.cpp">
+      <Filter>03.Field</Filter>
+    </ClCompile>
+    <ClCompile Include="Destination.cpp">
+      <Filter>02.Destination</Filter>
+    </ClCompile>
+    <ClCompile Include="Shop.cpp">
+      <Filter>04.Shop</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldInfo.cpp">
+      <Filter>03.Field\03_1. FieldInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="GoblinForest.cpp">
+      <Filter>03.Field\03_1. FieldInfo\03_1_1. GoblinForest</Filter>
+    </ClCompile>
+    <ClCompile Include="OrcVillage.cpp">
+      <Filter>03.Field\03_1. FieldInfo\03_1_2. OrcVillage</Filter>
+    </ClCompile>
+    <ClCompile Include="OrgerMountain.cpp">
+      <Filter>03.Field\03_1. FieldInfo\03_1_3. OrgerMountain</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>05.Inventory</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameManager.h">
+      <Filter>00.GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Characetr.h">
+      <Filter>01.Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>01.Character\01_1.Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>01.Character\01_2.Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Field.h">
+      <Filter>03.Field</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Destination.h">
+      <Filter>02.Destination</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop.h">
+      <Filter>04.Shop</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldInfo.h">
+      <Filter>03.Field\03_1. FieldInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="GoblinForest.h">
+      <Filter>03.Field\03_1. FieldInfo\03_1_1. GoblinForest</Filter>
+    </ClInclude>
+    <ClInclude Include="OrcVillage.h">
+      <Filter>03.Field\03_1. FieldInfo\03_1_2. OrcVillage</Filter>
+    </ClInclude>
+    <ClInclude Include="OrgerMountain.h">
+      <Filter>03.Field\03_1. FieldInfo\03_1_3. OrgerMountain</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>05.Inventory</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
