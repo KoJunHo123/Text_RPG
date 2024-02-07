@@ -135,7 +135,7 @@ void GameManager::SaveChoice()
 // 파일 저장
 void GameManager::SaveFile()
 {
-	ofstream outFile("SaveData.dat", ios::binary);
+	ofstream outFile("Save/SaveData.dat", ios::binary);
 	if (outFile.is_open())
 	{
 		m_player->SavePlayer(outFile);
@@ -151,7 +151,7 @@ void GameManager::SaveFile()
 void GameManager::LoadFile()
 {
 	m_player = new Player;
-	ifstream inFile("SaveData.dat", ios::binary);
+	ifstream inFile("Save/SaveData.dat", ios::binary);
 	if (inFile.is_open())
 	{
 		m_player->LoadPlayer(inFile);

@@ -34,10 +34,11 @@ void Destination::Update()
 			m_field = new Field;
 			m_field->Initialize(m_player);
 			m_field->Update();
-			m_iInput = iInput;
+			m_iInput = iInput;	// 나중에 Release 용도
 			break;
 
 		case (int)DEST::SHOP:
+			// cout << "상점 리모델링 중" << endl;
 			m_shop = new Shop;
 			m_shop->Initialize(m_player);
 			m_shop->Update();

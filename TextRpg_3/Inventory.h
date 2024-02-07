@@ -35,11 +35,11 @@ public:
 	bool AddItem(int _choice);
 	void ShowInventory()const;
 	void ShowShopItem()const;
-	
+
 	void AddMoney(int _money);
 	int GetMoney();
 
 	bool CompareMoney(int _item, int _pMoney);
-	
+
 };
 
