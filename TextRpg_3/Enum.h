@@ -6,6 +6,18 @@ enum class TITLE
 	EXIT
 };
 
+enum class START
+{
+	CONTINUE = 1,
+	BEGIN
+};
+
+enum class SAVE
+{
+	SAVE = 1,
+	NOTSAVE
+};
+
 enum class JOB
 {
 	FIGHTER = 1,

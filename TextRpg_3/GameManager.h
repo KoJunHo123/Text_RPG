@@ -29,7 +29,14 @@ public:
 	void Update();
 	void Release();
 
-public:
+
+private:
 	bool Title();
 	void JobChoice();
+	void Start();
+	void SaveChoice();
+
+
+	void SaveFile();
+	void LoadFile();
 };

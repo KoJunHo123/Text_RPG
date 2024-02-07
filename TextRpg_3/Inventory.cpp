@@ -152,4 +152,3 @@ bool Inventory::CompareMoney(int _item, int _pMoney)
 	}
 	return true;
 }
-

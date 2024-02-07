@@ -3,6 +3,7 @@
 #include "Characetr.h"
 #include "Inventory.h"
 
+#include <fstream>
 
 class Player : public Character
 {
@@ -41,4 +42,8 @@ public:
 	void UseItemEffect(int _iInput);
 
 	void AddMoney(int _money);
+
+
+	void SavePlayer(ofstream& _file);
+	void LoadPlayer(ifstream& _file);
 };

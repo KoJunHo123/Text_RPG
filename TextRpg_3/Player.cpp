@@ -185,4 +185,14 @@ void Player::AddMoney(int _money)
 	m_inven.AddMoney(_money);
 }
 
+void Player::SavePlayer(ofstream& _file)
+{
+	_file.write(reinterpret_cast<const char*>(this), sizeof(Player));	// write는 const char*를 인자로 받음.
+}
+
+void Player::LoadPlayer(ifstream& _file)
+{
+	_file.read(reinterpret_cast<char*>(this), sizeof(Player));		// read는 char*를 인자로 받음.
+}
+
 

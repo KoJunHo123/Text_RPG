@@ -38,9 +38,11 @@ bool GameManager::Title()
 		switch (iInput)
 		{
 		case (int)TITLE::START:
+			Start();
 			return true;
 
 		case (int)TITLE::EXIT:
+			SaveChoice();
 			return false;
 
 		default:
@@ -83,8 +85,83 @@ void GameManager::JobChoice()
 	
 }
 
+void GameManager::Start()
+{
+	system("cls");
+	int iLoad = 0;
+
+	cout << "1. 이어하기    2. 처음부터 : ";
+	cin >> iLoad;
+
+	switch (iLoad)
+	{
+	case (int)START::CONTINUE:
+		LoadFile();
+		break;
+
+	case (int)START::BEGIN:
+		break;
+
+	default:
+		InErr;
+		break;
+	}
+}
+
+void GameManager::SaveChoice()
+{
+	if (nullptr != m_player)
+	{
+		system("cls");
+		int iInput = 0;
+		cout << "저장하시겠습니까?" << endl;
+		cout << "1. 저장    2. 저장하지 않고 종료";
+		cin >> iInput;
+
+		switch (iInput)
+		{
+		case (int)SAVE::SAVE:
+			SaveFile();
+			break;
+
+		case (int)SAVE::NOTSAVE:
+			break;
+		}
+	}
 
 
+}
+
+// 파일 저장
+void GameManager::SaveFile()
+{
+	ofstream outFile("SaveData.dat", ios::binary);
+	if (outFile.is_open())
+	{
+		m_player->SavePlayer(outFile);
+		outFile.close();
+	}
+	else
+	{
+		cout << "파일 열기 실패" << endl;
+	}
+}
+
+// 파일 불러오기
+void GameManager::LoadFile()
+{
+	m_player = new Player;
+	ifstream inFile("SaveData.dat", ios::binary);
+	if (inFile.is_open())
+	{
+		m_player->LoadPlayer(inFile);
+		inFile.close();
+	}
+	else
+	{
+		cout << "파일 열기 실패" << endl;
+	}
+}
 
 GameManager::~GameManager()
 {
