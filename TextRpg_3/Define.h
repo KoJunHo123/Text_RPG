@@ -12,7 +12,6 @@
 
 #define INVENTORY	0
 
-
 #endif // !InErr
 
 // 랜덤한 숫자 가져오기

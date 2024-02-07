@@ -34,20 +34,20 @@
     <Filter Include="02.Destination">
       <UniqueIdentifier>{7934e0ff-8c3a-4f4f-841c-d595f6031c23}</UniqueIdentifier>
     </Filter>
-    <Filter Include="03.Field\03_1. FieldInfo">
-      <UniqueIdentifier>{fe431753-c452-42fa-b64f-0508b47d340b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="03.Field\03_1. FieldInfo\03_1_1. GoblinForest">
-      <UniqueIdentifier>{d4aeef44-98e1-4c65-a9ce-c7ae9e8e97f0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="03.Field\03_1. FieldInfo\03_1_2. OrcVillage">
-      <UniqueIdentifier>{acdba546-e080-493b-ab6b-7d3fc4205157}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="03.Field\03_1. FieldInfo\03_1_3. OrgerMountain">
-      <UniqueIdentifier>{5e6961c2-e52e-4e8d-8d95-bbff9298776c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="05.Inventory">
       <UniqueIdentifier>{bac97eee-c8fb-441f-835e-5a67daf51d34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. FieldInfo">
+      <UniqueIdentifier>{fe431753-c452-42fa-b64f-0508b47d340b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. FieldInfo\04_1. GoblinForest">
+      <UniqueIdentifier>{d4aeef44-98e1-4c65-a9ce-c7ae9e8e97f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. FieldInfo\04_2. OrcVillage">
+      <UniqueIdentifier>{acdba546-e080-493b-ab6b-7d3fc4205157}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. FieldInfo\04_3. OrgerMountain">
+      <UniqueIdentifier>{5e6961c2-e52e-4e8d-8d95-bbff9298776c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -76,16 +76,16 @@
       <Filter>04.Shop</Filter>
     </ClCompile>
     <ClCompile Include="FieldInfo.cpp">
-      <Filter>03.Field\03_1. FieldInfo</Filter>
+      <Filter>04. FieldInfo</Filter>
     </ClCompile>
     <ClCompile Include="GoblinForest.cpp">
-      <Filter>03.Field\03_1. FieldInfo\03_1_1. GoblinForest</Filter>
+      <Filter>04. FieldInfo\04_1. GoblinForest</Filter>
     </ClCompile>
     <ClCompile Include="OrcVillage.cpp">
-      <Filter>03.Field\03_1. FieldInfo\03_1_2. OrcVillage</Filter>
+      <Filter>04. FieldInfo\04_2. OrcVillage</Filter>
     </ClCompile>
     <ClCompile Include="OrgerMountain.cpp">
-      <Filter>03.Field\03_1. FieldInfo\03_1_3. OrgerMountain</Filter>
+      <Filter>04. FieldInfo\04_3. OrgerMountain</Filter>
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
       <Filter>05.Inventory</Filter>
@@ -120,16 +120,16 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="FieldInfo.h">
-      <Filter>03.Field\03_1. FieldInfo</Filter>
+      <Filter>04. FieldInfo</Filter>
     </ClInclude>
     <ClInclude Include="GoblinForest.h">
-      <Filter>03.Field\03_1. FieldInfo\03_1_1. GoblinForest</Filter>
+      <Filter>04. FieldInfo\04_1. GoblinForest</Filter>
     </ClInclude>
     <ClInclude Include="OrcVillage.h">
-      <Filter>03.Field\03_1. FieldInfo\03_1_2. OrcVillage</Filter>
+      <Filter>04. FieldInfo\04_2. OrcVillage</Filter>
     </ClInclude>
     <ClInclude Include="OrgerMountain.h">
-      <Filter>03.Field\03_1. FieldInfo\03_1_3. OrgerMountain</Filter>
+      <Filter>04. FieldInfo\04_3. OrgerMountain</Filter>
     </ClInclude>
     <ClInclude Include="Inventory.h">
       <Filter>05.Inventory</Filter>
