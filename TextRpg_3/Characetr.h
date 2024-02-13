@@ -40,9 +40,10 @@ public:
 	int GetState();
 	void AddState(int _buff);
 	void RemoveState(int _buff);
-	
 
-public:
-	virtual void showCharacter() {}
+	virtual void Initialize(const char _name[], int _maxHp, int _damage, int _returnExp);
+	
+	virtual void ShowInfo() const;
+	virtual void ShowInfo(int _i) const;
 };
 

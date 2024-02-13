@@ -12,7 +12,7 @@ private:
 
 	Field* m_field;
 	Shop* m_shop;
-	Player* m_player;
+	Character* m_player;
 
 public:
 	Destination()
@@ -25,7 +25,7 @@ public:
 	~Destination();
 
 public:
-	void Initialize(Player* _player);
+	void Initialize(Character* _player);
 	void Update();
 	void Release();
 };

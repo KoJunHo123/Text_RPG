@@ -2,14 +2,15 @@
 
 // 파일 입출력을 통한 상점 품목 불러오기.
 
-void Shop::Initialize(Player* _player)
+void Shop::Initialize(Character* _player)
 {
 	m_player = _player;
 }
 
 void Shop::Update()
 {
-	m_player->OpenShop();
+	Player* player = dynamic_cast<Player*>(m_player);
+	player->OpenShop();
 	
 	
 }

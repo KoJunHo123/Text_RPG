@@ -115,7 +115,7 @@ void GameManager::SaveChoice()
 		system("cls");
 		int iInput = 0;
 		cout << "저장하시겠습니까?" << endl;
-		cout << "1. 저장    2. 저장하지 않고 종료";
+		cout << "1. 저장    2. 저장하지 않고 종료 : ";
 		cin >> iInput;
 
 		switch (iInput)
@@ -138,7 +138,8 @@ void GameManager::SaveFile()
 	ofstream outFile("Save/SaveData.dat", ios::binary);
 	if (outFile.is_open())
 	{
-		m_player->SavePlayer(outFile);
+		Player* player = dynamic_cast<Player*>(m_player);
+		player->SavePlayer(outFile);
 		outFile.close();
 	}
 	else
@@ -151,10 +152,11 @@ void GameManager::SaveFile()
 void GameManager::LoadFile()
 {
 	m_player = new Player;
+	Player* player = dynamic_cast<Player*>(m_player);
 	ifstream inFile("Save/SaveData.dat", ios::binary);
 	if (inFile.is_open())
 	{
-		m_player->LoadPlayer(inFile);
+		player->LoadPlayer(inFile);
 		inFile.close();
 	}
 	else

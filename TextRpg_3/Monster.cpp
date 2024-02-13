@@ -17,7 +17,7 @@ void Monster::Initialize(const char _name[], int _maxHp, int _damage, int _retur
 	m_returnExp = _returnExp;
 }
 
-void Monster::ShowMonster(int _i)const
+void Monster::ShowInfo(int _i)const
 {
 	if (0 < m_hp)
 	{

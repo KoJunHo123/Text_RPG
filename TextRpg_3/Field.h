@@ -11,7 +11,7 @@
 class Field
 {
 private:
-	Player* m_player;
+	Character* m_player;
 	FieldInfo* m_fieldInfo;
 
 	int m_iInput;
@@ -26,7 +26,7 @@ public:
 	~Field();
 
 public:
-	void Initialize(Player* _player);
+	void Initialize(Character* _player);
 	void Update();
 	void Release();
 

@@ -1,7 +1,7 @@
 #include "GoblinForest.h"
 
 
-void GoblinForest::Initialize(Player* _player)
+void GoblinForest::Initialize(Character* _player)
 {
 	
 	m_allow = GetRandomNum(1, 3);
@@ -9,9 +9,11 @@ void GoblinForest::Initialize(Player* _player)
 	m_monster = new Monster[m_allow];
 	m_player = _player;
 
+
+	Monster* monster = dynamic_cast<Monster*>(m_monster);
 	for (int i = 0; i < m_allow; ++i)
 	{
-		m_monster[i].Initialize("고블린", 30, 3, 10);
+		monster[i].Initialize("고블린", 30, 3, 10);	// monster를 character 형만큼 주소연산 하려 하면 오류
 	}
 
 	m_debuff |= POISON;
@@ -19,7 +21,8 @@ void GoblinForest::Initialize(Player* _player)
 
 	m_alliveMonster = m_allow;
 
-	m_monster->SetReturnMoney(100);
+
+	monster->SetReturnMoney(100);
 }
 
 void GoblinForest::Update()

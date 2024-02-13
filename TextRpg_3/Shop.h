@@ -6,7 +6,7 @@
 class Shop
 {
 private:
-	Player* m_player;
+	Character* m_player;
 
 public:
 	Shop()
@@ -15,7 +15,7 @@ public:
 	~Shop(){}
 
 public:
-	void Initialize(Player* _player);
+	void Initialize(Character* _player);
 	void Update();
 
 };

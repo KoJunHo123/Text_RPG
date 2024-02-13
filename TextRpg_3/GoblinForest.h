@@ -10,7 +10,7 @@ public:
 	~GoblinForest(){}
 
 public:
-	void Initialize(Player* _player);
+	void Initialize(Character* _player);
 	void Update();
 	void Release();
 

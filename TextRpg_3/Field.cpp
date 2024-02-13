@@ -5,7 +5,7 @@ Field::~Field()
 	Release();
 }
 
-void Field::Initialize(Player* _player)
+void Field::Initialize(Character* _player)
 {
 	m_player = _player;
 }
@@ -15,17 +15,18 @@ void Field::Update()
 	while (true)
 	{
 		system("cls");
-		m_player->ShowPlayer();
+		m_player->ShowInfo();
 		int iInput = 0;
 
 		cout << "사냥터" << endl;
 		cout << "0. 인벤토리    1. 고블린 숲    2. 오크 부락    3. 오우거 산    4. 돌아가기 : ";
 		cin >> iInput;
 
+		Player* player = dynamic_cast<Player*>(m_player);
 		switch (iInput)
 		{
 		case INVENTORY:
-			m_player->OpenInventory();
+			player->OpenInventory();
 			break;
 
 		case (int)FIELD::GOBLIN:

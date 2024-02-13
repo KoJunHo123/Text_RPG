@@ -1,8 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include "Characetr.h"
 #include "Player.h"
-#include "Monster.h"
 #include "Destination.h"
 #include "Enum.h"
 #include "Define.h"
@@ -12,7 +12,7 @@ using namespace std;
 
 class GameManager
 {
-	Player*		m_player;
+	Character*	m_player;
 	Destination m_destination;
 
 

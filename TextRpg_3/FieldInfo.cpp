@@ -7,7 +7,7 @@ FieldInfo::~FieldInfo()
 }
 
 // virtual
-void FieldInfo::Initialize(Player* _player)
+void FieldInfo::Initialize(Character* _player)
 {
 }
 
@@ -16,7 +16,7 @@ void FieldInfo::Update()
 	while (true)
 	{
 		system("cls");
-		m_player->ShowPlayer();
+		m_player->ShowInfo();
 		ShowMonsterArr();
 
 
@@ -26,10 +26,12 @@ void FieldInfo::Update()
 		cout << "0. 인벤토리    1. 공격    2. 도주 : ";
 		cin >> iInput;
 
+		Player* player = dynamic_cast<Player*>(m_player);
+
 		switch (iInput)
 		{
 		case INVENTORY:
-			m_player->OpenInventory();
+			player->OpenInventory();
 			break;
 
 		case (int)BATTLE::ATTACK:
@@ -63,16 +65,17 @@ void FieldInfo::Release()
 
 void FieldInfo::ShowMonsterArr()
 {
+	Monster* monster = dynamic_cast<Monster*>(m_monster);
 	for (int i = 0; i < m_allow; ++i)
 	{
-		m_monster[i].ShowMonster(i);
+		monster[i].ShowInfo(i);
 	}
 }
 
 void FieldInfo::Fight()
 {
 	system("cls");
-	m_player->ShowPlayer();
+	m_player->ShowInfo();
 	ShowMonsterArr();
 
 	int iAttack = 0;
@@ -87,15 +90,17 @@ void FieldInfo::Fight()
 
 void FieldInfo::DamageCalculate(int _iAttack)
 {
+	Player* player = dynamic_cast<Player*>(m_player);
+	Monster* monster = dynamic_cast<Monster*>(m_monster);
 	// 입력한 값이 몬스터를 대상으로 했으며, 해당 대상의 체력이 존재할 경우.
-	if (0 <= _iAttack && m_allow > _iAttack && m_monster[_iAttack].GetHp() > 0)
+	if (0 <= _iAttack && m_allow > _iAttack && monster[_iAttack].GetHp() > 0)
 	{
-		m_player->HpCalculate(m_monster[_iAttack].GetDamage() * m_alliveMonster);
-		cout << "플레이어가 " << m_monster[_iAttack].GetDamage() * m_alliveMonster << "의 데미지를 받았습니다." << endl;
+		m_player->HpCalculate(monster[_iAttack].GetDamage() * m_alliveMonster);
+		cout << "플레이어가 " << monster[_iAttack].GetDamage() * m_alliveMonster << "의 데미지를 받았습니다." << endl;
 		Debuff();
-		if (m_player->DebuffEffect())	// 공포 등의 디버프 판정 -> false나오면 실패
+		if (player->DebuffEffect())	// 공포 등의 디버프 판정 -> false나오면 실패
 		{
-			m_monster[_iAttack].HpCalculate(m_player->GetDamage());
+			monster[_iAttack].HpCalculate(m_player->GetDamage());
 			cout << "플레이어가 " << m_player->GetDamage() << "의 데미지를 주었습니다." << endl;
 		}
 		
@@ -116,22 +121,24 @@ bool FieldInfo::Decision()
 	int save = m_alliveMonster;
 	m_alliveMonster = m_allow;
 
+	Monster* monster = dynamic_cast<Monster*>(m_monster);
 	// 전체 할당 몬스터에서 현재 죽은 몬스터만큼 제외
 	for (int i = 0; i < m_allow; ++i)
 	{
-		if (0 >= m_monster[i].GetHp())
+		if (0 >= monster[i].GetHp())
 		{
-			m_monster[i].RemoveAttack();
+			monster[i].RemoveAttack();
 			--m_alliveMonster;
 		}
 	}
 
+	Player* player = dynamic_cast<Player*>(m_player);
 	// 기존에 생존한 몬스터보다 현재 생존한 몬스터 수가 적을 경우 경험치 증가
 	if (save > m_alliveMonster)
 	{
-		m_player->CalculateExp((save - m_alliveMonster) * m_monster->GetReturnExp());
-		m_player->AddMoney(m_monster->GetReturnMoney());
-		cout << m_monster->GetReturnMoney() << " Gold를 획득했습니다." << endl;
+		player->CalculateExp((save - m_alliveMonster) * monster->GetReturnExp());
+		player->AddMoney(monster->GetReturnMoney());
+		cout << monster->GetReturnMoney() << " Gold를 획득했습니다." << endl;
 		system("pause");
 	}
 

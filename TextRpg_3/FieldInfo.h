@@ -11,8 +11,8 @@
 class FieldInfo
 {
 protected:
-	Monster* m_monster;	// 몬스터 동적할당
-	Player* m_player;	// 플레이어 가져오기용
+	Character* m_monster;	// 몬스터 동적할당
+	Character* m_player;	// 플레이어 가져오기용
 	int m_allow;		// 할당할 몬스터 수
 	int m_debuff;		// 디버프 종류
 	int m_debuffPer;	// 디버프 확률
@@ -31,7 +31,7 @@ public:
 	~FieldInfo();
 
 public:
-	virtual void Initialize(Player* _player);
+	virtual void Initialize(Character* _player);
 	void Update();
 	void Release();
 	// 랜덤한 숫자 가져오기

@@ -54,7 +54,7 @@ bool Player::DebuffEffect()
 	return attack_Success;
 }
 
-void Player::ShowPlayer()const
+void Player::ShowInfo()const
 {
 	cout << "직업 : " << m_name << endl;
 	cout << "레벨 : " << m_level << endl;
@@ -89,7 +89,7 @@ void Player::OpenInventory()
 	while (useInventory)
 	{
 		system("cls");
-		ShowPlayer();
+		ShowInfo();
 		m_inven.ShowInventory();
 
 		int iInput = 0;
@@ -187,7 +187,7 @@ void Player::AddMoney(int _money)
 
 void Player::SavePlayer(ofstream& _file)
 {
-	_file.write(reinterpret_cast<const char*>(this), sizeof(Player));	// write는 const char*를 인자로 받음.
+	_file.write(reinterpret_cast<const char*>(this), sizeof(Player));		// write는 const char*를 인자로 받음.
 }
 
 void Player::LoadPlayer(ifstream& _file)

@@ -34,7 +34,7 @@ private:
 public:
 	void CalculateExp(int _getExp);
 	bool DebuffEffect();
-	void ShowPlayer()const;	// 멤버 변수를 보여줄 일이 없음.
+	void ShowInfo()const;	// 멤버 변수를 보여줄 일이 없음.
 
 	void OpenInventory();
 	void OpenShop();
