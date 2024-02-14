@@ -211,10 +211,6 @@ void Player::UseItemEffect(int _iInput)
 	}
 	
 }
-void Player::EquipItemEffect()
-{
-
-}
 //
 //void Player::SavePlayer(ofstream& _file)
 //{

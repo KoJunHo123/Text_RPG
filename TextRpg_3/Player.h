@@ -43,7 +43,6 @@ public:
 	void AddEquipItem(int _choice, int _wa) { m_inven.AddEquipItem(_choice, _wa); }
 
 	void UseItemEffect(int _iInput);
-	void EquipItemEffect();
 
 	void AddMoney(int _money) { m_inven.AddMoney(_money); }
 	int GetMoney() { return m_inven.GetMoney(); }
