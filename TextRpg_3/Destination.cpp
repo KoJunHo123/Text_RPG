@@ -23,12 +23,10 @@ void Destination::Update()
 		cout << "0. 인벤토리    1. 사냥터    2. 상점    3. 타이틀로 돌아가기 : ";
 		cin >> iInput;
 
-		Player* player = dynamic_cast<Player*>(m_player);
-
 		switch (iInput)
 		{
 		case INVENTORY:
-			player->OpenInventory();
+			static_cast<Player*>(m_player)->OpenInventory();
 			break;
 
 		case (int)DEST::FIELD:

@@ -1,5 +1,6 @@
 #pragma once
 
+
 #ifndef 전처리기
 
 #define InErr	{ cout << "잘못된 입력입니다." << endl; system("pause"); }

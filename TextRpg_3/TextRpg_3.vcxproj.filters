@@ -25,17 +25,11 @@
     <Filter Include="01.Character\01_2.Monster">
       <UniqueIdentifier>{4d23a0fb-cdda-4ac9-8666-cc12ace7b6ac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04.Shop">
-      <UniqueIdentifier>{58cd9e19-5617-4836-9ab1-0049b9a19906}</UniqueIdentifier>
-    </Filter>
     <Filter Include="03.Field">
       <UniqueIdentifier>{ea871b29-2443-400d-a487-1a389a096fd8}</UniqueIdentifier>
     </Filter>
     <Filter Include="02.Destination">
       <UniqueIdentifier>{7934e0ff-8c3a-4f4f-841c-d595f6031c23}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Inventory">
-      <UniqueIdentifier>{bac97eee-c8fb-441f-835e-5a67daf51d34}</UniqueIdentifier>
     </Filter>
     <Filter Include="04. FieldInfo">
       <UniqueIdentifier>{fe431753-c452-42fa-b64f-0508b47d340b}</UniqueIdentifier>
@@ -48,6 +42,15 @@
     </Filter>
     <Filter Include="04. FieldInfo\04_3. OrgerMountain">
       <UniqueIdentifier>{5e6961c2-e52e-4e8d-8d95-bbff9298776c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Shop">
+      <UniqueIdentifier>{58cd9e19-5617-4836-9ab1-0049b9a19906}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Inventory">
+      <UniqueIdentifier>{bac97eee-c8fb-441f-835e-5a67daf51d34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="07.ItemList">
+      <UniqueIdentifier>{47b2e11c-341d-4020-a071-2b093569eb5b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -73,7 +76,7 @@
       <Filter>02.Destination</Filter>
     </ClCompile>
     <ClCompile Include="Shop.cpp">
-      <Filter>04.Shop</Filter>
+      <Filter>05.Shop</Filter>
     </ClCompile>
     <ClCompile Include="FieldInfo.cpp">
       <Filter>04. FieldInfo</Filter>
@@ -88,7 +91,10 @@
       <Filter>04. FieldInfo\04_3. OrgerMountain</Filter>
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
-      <Filter>05.Inventory</Filter>
+      <Filter>06.Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemList.cpp">
+      <Filter>07.ItemList</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -114,7 +120,7 @@
       <Filter>02.Destination</Filter>
     </ClInclude>
     <ClInclude Include="Shop.h">
-      <Filter>04.Shop</Filter>
+      <Filter>05.Shop</Filter>
     </ClInclude>
     <ClInclude Include="Define.h">
       <Filter>헤더 파일</Filter>
@@ -132,7 +138,10 @@
       <Filter>04. FieldInfo\04_3. OrgerMountain</Filter>
     </ClInclude>
     <ClInclude Include="Inventory.h">
-      <Filter>05.Inventory</Filter>
+      <Filter>06.Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemList.h">
+      <Filter>07.ItemList</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

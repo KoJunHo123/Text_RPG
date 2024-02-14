@@ -8,13 +8,13 @@ Monster::Monster(const char _name[], int _maxHp, int _damage)
 
 }
 
-void Monster::Initialize(const char _name[], int _maxHp, int _damage, int _returnExp)
+void Monster::Initialize(const char _name[], int _maxHp, int _damage)
 {
 	strcpy_s(m_name, sizeof(m_name), _name);
 	m_hp = _maxHp;
 	m_maxHp = _maxHp;
 	m_damage = _damage;
-	m_returnExp = _returnExp;
+	m_returnExp = _maxHp / 3;
 }
 
 void Monster::ShowInfo(int _i)const
@@ -29,17 +29,3 @@ void Monster::ShowInfo(int _i)const
 	}
 }
 
-void Monster::RemoveAttack()
-{
-	m_damage = 0;
-}
-
-void Monster::SetReturnMoney(int _money)
-{
-	m_returnMoney = _money;
-}
-
-int Monster::GetReturnMoney()
-{
-	return m_returnMoney;
-}

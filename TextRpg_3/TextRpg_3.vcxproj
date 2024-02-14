@@ -135,6 +135,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GoblinForest.cpp" />
     <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="ItemList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="OrcVillage.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GoblinForest.h" />
     <ClInclude Include="Inventory.h" />
+    <ClInclude Include="ItemList.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="OrcVillage.h" />
     <ClInclude Include="OrgerMountain.h" />

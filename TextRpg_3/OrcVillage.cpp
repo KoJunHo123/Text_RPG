@@ -7,10 +7,10 @@ void OrcVillage::Initialize(Character* _player)
 	m_monster = new Monster[m_allow];
 	m_player = _player;
 
-	Monster* monster = dynamic_cast<Monster*>(m_monster);
+	Monster* monster = static_cast<Monster*>(m_monster);
 	for (int i = 0; i < m_allow; ++i)
 	{
-		monster[i].Initialize("오크", 60, 6, 20);
+		monster[i].Initialize("오크", 60, 6);
 	}
 
 	m_debuff |= BLOODY;

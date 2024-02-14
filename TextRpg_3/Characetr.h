@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Character
+class Character abstract
 {
 protected:
 	char	m_name[32];
@@ -28,22 +28,31 @@ public:
 
 	Character(const char _name[], int _maxHp, int _damage);
 
-	~Character()
-	{}
+	virtual ~Character() {}
 
 public:
+	// 데미지 반환
 	int GetDamage() { return m_damage; }
+	// hp 반환
 	int GetHp() { return m_hp; }
+	// hp 최대로
 	void InitHp() { m_hp = m_maxHp; }
-	void HpCalculate(int _other) { m_hp -= _other; }
+	// hp 깎임
+	void HpCalculate(int _damage) { m_hp -= _damage; }
+	// 상태창 반환
+	int GetState() { return m_state; }
+	// 상태 추가
+	void AddState(int _buff) { m_state |= _buff; }
+	// 상태 제거
+	void RemoveState(int _buff) { m_state &= ~_buff; }
 
-	int GetState();
-	void AddState(int _buff);
-	void RemoveState(int _buff);
-
-	virtual void Initialize(const char _name[], int _maxHp, int _damage, int _returnExp);
+	// 플레이어/몬스터 초기화
+	virtual void Initialize(const char _name[], int _maxHp, int _damage) = 0;
 	
-	virtual void ShowInfo() const;
-	virtual void ShowInfo(int _i) const;
+	// 플레이어와 몬스터에서 부르는 함수가 다르기 때문에 순수 가상 함수를 써서는 안 됨.
+	// 플레이어 정보 출력
+	virtual void ShowInfo() const {}
+	// 몬스터 정보 출력
+	virtual void ShowInfo(int _i) const{}
 };
 

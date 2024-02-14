@@ -15,16 +15,22 @@ public:
 
 	Monster(const char _name[], int _maxHp, int _damage);
 
-	~Monster() {}
+	virtual ~Monster() {}
 
 
 public:
-	int  GetReturnExp() { return m_returnExp; }
-	void Initialize(const char _name[], int _maxHp, int _damage, int _returnExp);
+	// 초기화
+	void Initialize(const char _name[], int _maxHp, int _damage);
+	// 정보 출력
 	void ShowInfo(int _i)const;
-	void RemoveAttack();
 
-	void SetReturnMoney(int _money);
-	int GetReturnMoney();
+	// 경험치 반환
+	int  GetReturnExp() { return m_returnExp; }
+	// 공격 제거
+	void RemoveAttack() { m_damage = 0; }
+	// 획득 골드 설정
+	void SetReturnMoney(int _money) { m_returnMoney = _money; }
+	// 처치시 획득 골드
+	int GetReturnMoney() { return m_returnMoney; }
 };
 

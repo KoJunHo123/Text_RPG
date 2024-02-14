@@ -22,11 +22,10 @@ void Field::Update()
 		cout << "0. 인벤토리    1. 고블린 숲    2. 오크 부락    3. 오우거 산    4. 돌아가기 : ";
 		cin >> iInput;
 
-		Player* player = dynamic_cast<Player*>(m_player);
 		switch (iInput)
 		{
 		case INVENTORY:
-			player->OpenInventory();
+			static_cast<Player*>(m_player)->OpenInventory();
 			break;
 
 		case (int)FIELD::GOBLIN:

@@ -10,10 +10,10 @@ void GoblinForest::Initialize(Character* _player)
 	m_player = _player;
 
 
-	Monster* monster = dynamic_cast<Monster*>(m_monster);
+	Monster* monster = static_cast<Monster*>(m_monster);
 	for (int i = 0; i < m_allow; ++i)
 	{
-		monster[i].Initialize("고블린", 30, 3, 10);	// monster를 character 형만큼 주소연산 하려 하면 오류
+		monster[i].Initialize("고블린", 30, 3);	// monster를 character 형만큼 주소연산 하려 하면 오류
 	}
 
 	m_debuff |= POISON;

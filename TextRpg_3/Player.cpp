@@ -11,6 +11,18 @@ Player::Player(const char _name[], int _maxHp, int _damage)
 
 
 
+void Player::Initialize(const char _name[], int _maxHp, int _damage)
+{
+	strcpy_s(m_name, sizeof(m_name), _name);
+	m_hp = _maxHp;
+	m_maxHp = _maxHp;
+	m_damage = _damage;
+	m_level = 1;
+	m_exp = 0;
+	m_maxExp = 50;
+	m_inven = {};
+}
+
 void Player::CalculateExp(int _getExp)
 {
 	m_exp += _getExp;
@@ -85,55 +97,69 @@ void Player::ShowInfo()const
 
 void Player::OpenInventory()
 {
-	int useInventory = 1;
-	while (useInventory)
+	system("cls");
+	ShowInfo();
+	int choice = 0;
+	cout << "1. 소비창    2. 장비창     3. 돌아가기 : ";
+	cin >> choice;
+
+	if (1 == choice)
 	{
-		system("cls");
-		ShowInfo();
-		m_inven.ShowInventory();
-
-		int iInput = 0;
-		cout << "1. 빨간 포션    2. 해독제    3. 붕대    4. 청심환    5. 돌아가기 : ";
-		cin >> iInput;
-
-		useInventory = m_inven.UseItem(iInput);
-		if(1 == useInventory)
-			UseItemEffect(iInput);
-		system("pause");
-	}
-}
-
-void Player::OpenShop()
-{
-	bool useShop = true;
-
-	while (useShop)
-	{
-		system("cls");
-		m_inven.ShowShopItem();
-
-		int iInput = 0;
-		cout << "1. 빨간 포션    2. 해독제    3. 붕대    4. 청심환    5. 돌아가기 : ";
-		cin >> iInput;
-
-		if (!(m_inven.CompareMoney(iInput, m_inven.GetMoney())))
+		bool useInventory = true;
+		while (useInventory)
 		{
-			cout << "금액이 부족합니다." << endl;
-			system("pause");
-			continue;
-		}
+			system("cls");
+			ShowInfo();
+			m_inven.ShowInventory();
 
-		useShop = m_inven.AddItem(iInput);
-		system("pause");
+			int iInput = 0;
+			cout << "1. 빨간 포션    2. 해독제    3. 붕대    4. 청심환    5. 돌아가기 : ";
+			cin >> iInput;
+			if (5 == iInput)
+				return;
+			useInventory = m_inven.UseItem(iInput);
+			if (true == useInventory)
+				UseItemEffect(iInput);
+			system("pause");
+		}
+	}
+	else if (2 == choice)
+	{
+		while (true)
+		{
+			system("cls");
+			ShowInfo();
+			m_inven.ShowEquip();
+
+			int iInput = 0;
+			cout << "1. 무기 변경    2. 갑옷 변경    3. 돌아가기" << endl;
+			cin >> iInput;
+
+			switch (iInput)
+			{
+			case (int)EQUIP::WEAPON:
+				m_inven.ChangeWeapon();
+				break;
+
+			case (int)EQUIP::ARMOR:
+				m_inven.ChangeArmor();
+				break;
+
+			case (int)EQUIP::BACK:
+				return;
+			}
+		}
 	}
 	
 }
+
+
 
 void Player::UseItemEffect(int _iInput)
 {
 	switch (_iInput)
 	{
-	case (int)ITEM::REDP:
+	case (int)CONSUMABLE::REDP:
 		if (50 > (m_maxHp - m_hp))
 		{
 			cout << "플레이어의 체력이 " << m_maxHp - m_hp << " 회복되었습니다." << endl;
@@ -146,7 +172,7 @@ void Player::UseItemEffect(int _iInput)
 		}
 		break;
 
-	case (int)ITEM::ANTI:
+	case (int)CONSUMABLE::ANTI:
 		if(POISON == (m_state & POISON))
 		{
 			cout << "중독을 해제하였습니다." << endl;
@@ -154,7 +180,7 @@ void Player::UseItemEffect(int _iInput)
 		}
 		break;
 
-	case (int)ITEM::BAND:
+	case (int)CONSUMABLE::BAND:
 		if (BLOODY == (m_state & BLOODY))
 		{
 			cout << "출혈을 해제하였습니다." << endl;
@@ -162,7 +188,7 @@ void Player::UseItemEffect(int _iInput)
 		}
 		break;
 
-	case (int)ITEM::MENTAL:
+	case (int)CONSUMABLE::MENTAL:
 		if (FEAR == (m_state & FEAR))
 		{
 			cout << "공포를 해제하였습니다." << endl;
@@ -170,7 +196,7 @@ void Player::UseItemEffect(int _iInput)
 		}
 		break;
 
-	case (int)ITEM::RETURN:
+	case (int)CONSUMABLE::RETURN:
 		return;
 
 	default:
@@ -179,20 +205,19 @@ void Player::UseItemEffect(int _iInput)
 	}
 	
 }
-
-void Player::AddMoney(int _money)
+void Player::EquipItemEffect()
 {
-	m_inven.AddMoney(_money);
-}
 
-void Player::SavePlayer(ofstream& _file)
-{
-	_file.write(reinterpret_cast<const char*>(this), sizeof(Player));		// write는 const char*를 인자로 받음.
 }
-
-void Player::LoadPlayer(ifstream& _file)
-{
-	_file.read(reinterpret_cast<char*>(this), sizeof(Player));		// read는 char*를 인자로 받음.
-}
+//
+//void Player::SavePlayer(ofstream& _file)
+//{
+//	_file.write(reinterpret_cast<const char*>(this), sizeof(Player));		// write는 const char*를 인자로 받음.
+//}
+//
+//void Player::LoadPlayer(ifstream& _file)
+//{
+//	_file.read(reinterpret_cast<char*>(this), sizeof(Player));		// read는 char*를 인자로 받음.
+//}
 
 

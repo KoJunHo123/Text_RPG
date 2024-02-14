@@ -8,7 +8,7 @@
 #include "ctime"
 #include "random"
 
-class FieldInfo
+class FieldInfo abstract
 {
 protected:
 	Character* m_monster;	// 몬스터 동적할당
@@ -28,10 +28,18 @@ public:
 		, m_debuffPer(0)
 		, m_alliveMonster(0)
 	{}
-	~FieldInfo();
+	virtual ~FieldInfo();
+
+
+	// 추상 클래스 : 순수 가상 함수를 단 한 개라도 보유한 상태의 클래스
+	// 자료형으로서는 존재하지만 객체 생성은 불가능한 클래스(어떠한 경우에도.)
 
 public:
-	virtual void Initialize(Character* _player);
+	virtual void Initialize(Character* _player) = 0;	// 순수 가상 함수(걍 ㄹㅇ로 오버라이딩 전용)
+	// 오버라이딩을 위해 몸체가 없다고 표현.
+	// 전방 선언과 같음. 먼저 선언하고 구현은 나중에 -> 근데 이런다고 객체를 만들 수 있는 건 아님.
+	// 부모 타입 객체 아예 안쓴다는 마인드.
+
 	void Update();
 	void Release();
 	// 랜덤한 숫자 가져오기
@@ -49,7 +57,7 @@ private:
 	bool Decision();
 
 	// 디버프 획득
-	virtual void Debuff();
+	virtual void Debuff() = 0;	
 	
 };
 

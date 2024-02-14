@@ -7,7 +7,7 @@ private:
 
 public:
 	OrgerMountain() {}
-	~OrgerMountain() {}
+	virtual ~OrgerMountain() {}
 
 public:
 	void Initialize(Character* _player);

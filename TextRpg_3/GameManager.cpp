@@ -66,15 +66,18 @@ void GameManager::JobChoice()
 		switch (iInput)
 		{
 		case (int)JOB::FIGHTER:
-			m_player = new Player("전사", 300, 10);
+			m_player = new Player;
+			m_player->Initialize("전사", 300, 10);
 			return;
 
 		case (int)JOB::MAGITION:
-			m_player = new Player("마법사", 100, 30);
+			m_player = new Player;
+			m_player->Initialize("마법사", 100, 30);
 			return;
 
 		case (int)JOB::THIEF:
-			m_player = new Player("도적", 200, 20);
+			m_player = new Player;
+			m_player->Initialize("도적", 200, 20);
 			return;
 		default:
 			InErr;
@@ -96,7 +99,8 @@ void GameManager::Start()
 	switch (iLoad)
 	{
 	case (int)START::CONTINUE:
-		LoadFile();
+		//LoadFile();
+		cout << "점검중입니다." << endl;
 		break;
 
 	case (int)START::BEGIN:
@@ -121,7 +125,8 @@ void GameManager::SaveChoice()
 		switch (iInput)
 		{
 		case (int)SAVE::SAVE:
-			SaveFile();
+			//SaveFile();
+			cout << "점검중입니다." << endl;
 			break;
 
 		case (int)SAVE::NOTSAVE:
@@ -133,37 +138,37 @@ void GameManager::SaveChoice()
 }
 
 // 파일 저장
-void GameManager::SaveFile()
-{
-	ofstream outFile("Save/SaveData.dat", ios::binary);
-	if (outFile.is_open())
-	{
-		Player* player = dynamic_cast<Player*>(m_player);
-		player->SavePlayer(outFile);
-		outFile.close();
-	}
-	else
-	{
-		cout << "파일 열기 실패" << endl;
-	}
-}
-
+//void GameManager::SaveFile()
+//{
+//	ofstream outFile("Save/SaveData.dat", ios::binary);
+//	if (outFile.is_open())
+//	{
+//		Player* player = static_cast<Player*>(m_player);
+//		player->SavePlayer(outFile);
+//		outFile.close();
+//	}
+//	else
+//	{
+//		cout << "파일 열기 실패" << endl;
+//	}
+//}
+//
 // 파일 불러오기
-void GameManager::LoadFile()
-{
-	m_player = new Player;
-	Player* player = dynamic_cast<Player*>(m_player);
-	ifstream inFile("Save/SaveData.dat", ios::binary);
-	if (inFile.is_open())
-	{
-		player->LoadPlayer(inFile);
-		inFile.close();
-	}
-	else
-	{
-		cout << "파일 열기 실패" << endl;
-	}
-}
+//void GameManager::LoadFile()
+//{
+//	m_player = new Player;
+//	
+//	ifstream inFile("Save/SaveData.dat", ios::binary);
+//	if (inFile.is_open())
+//	{
+//		static_cast<Player*>(m_player)->LoadPlayer(inFile);
+//		inFile.close();
+//	}
+//	else
+//	{
+//		cout << "파일 열기 실패" << endl;
+//	}
+//}
 
 GameManager::~GameManager()
 {

@@ -7,7 +7,7 @@ private:
 
 public:
 	GoblinForest(){}
-	~GoblinForest(){}
+	virtual ~GoblinForest(){}
 
 public:
 	void Initialize(Character* _player);

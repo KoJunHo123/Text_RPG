@@ -46,11 +46,26 @@ enum class BATTLE
 	RUN
 };
 
-enum class ITEM
+enum class CONSUMABLE
 {
 	REDP = 1,
 	ANTI,
 	BAND,
 	MENTAL,
 	RETURN
+};
+
+enum class EQUIPRANK
+{
+	OLD = 1,
+	NEW,
+	HARD,
+	BACK
+};
+
+enum class EQUIP
+{
+	WEAPON = 1,
+	ARMOR,
+	BACK
 };

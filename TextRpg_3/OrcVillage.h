@@ -7,7 +7,7 @@ private:
 
 public:
 	OrcVillage() {}
-	~OrcVillage() {}
+	virtual ~OrcVillage() {}
 
 public:
 	void Initialize(Character* _player);

@@ -2,44 +2,51 @@
 #include <iostream>
 #include "Enum.h"
 #include "Define.h"
+#include "ItemList.h"
 using namespace std;
 
-struct tItem
+struct WearItem
 {
-	unsigned int count;
-	unsigned int price;
+	tWeapon weapon;
+	tArmor armor;
 };
 
 class Inventory
 {
 private:
-	tItem	m_redPotion;
-	tItem	m_antiPoison;
-	tItem	m_bandage;
-	tItem	m_mentalCare;
+	ItemList m_item;
+	WearItem m_wear;
 
 	unsigned int m_money;
 
 public:
 	Inventory()
-		: m_redPotion{ 0, 100 }
-		, m_antiPoison{ 0, 100 }
-		, m_bandage{ 0, 200 }
-		, m_mentalCare{ 0, 300 }
-		, m_money(0)
+		: m_item{}
+		, m_wear{}
+		, m_money(1000000)
 	{}
 	~Inventory() {}
 
 public:
-	int UseItem(int _choice);
-	bool AddItem(int _choice);
+	bool UseItem(int _choice);
+	void AddItem(int _choice);
 	void ShowInventory()const;
-	void ShowShopItem()const;
+	void ShowEquip() const;
 
-	void AddMoney(int _money);
-	int GetMoney();
+	// 장비 추가
+	void AddEquipItem(int _rankChoice, int _wa);
 
-	bool CompareMoney(int _item, int _pMoney);
+	// 장비 변경
+	void ChangeWeapon();
+	void ChangeArmor();
 
+	// 소지금 추가
+	void AddMoney(int _money) { m_money += _money; }
+
+	// 소지금 반환
+	int GetMoney() { return m_money; }
+
+	// 소지금 소비
+	void UseMoney(int _money) { m_money -= _money; }
 };
 

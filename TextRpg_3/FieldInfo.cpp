@@ -6,10 +6,6 @@ FieldInfo::~FieldInfo()
 	Release();
 }
 
-// virtual
-void FieldInfo::Initialize(Character* _player)
-{
-}
 
 void FieldInfo::Update()
 {
@@ -26,7 +22,7 @@ void FieldInfo::Update()
 		cout << "0. 인벤토리    1. 공격    2. 도주 : ";
 		cin >> iInput;
 
-		Player* player = dynamic_cast<Player*>(m_player);
+		Player* player = static_cast<Player*>(m_player);
 
 		switch (iInput)
 		{
@@ -90,8 +86,8 @@ void FieldInfo::Fight()
 
 void FieldInfo::DamageCalculate(int _iAttack)
 {
-	Player* player = dynamic_cast<Player*>(m_player);
-	Monster* monster = dynamic_cast<Monster*>(m_monster);
+	Player* player = static_cast<Player*>(m_player);
+	Monster* monster = static_cast<Monster*>(m_monster);
 	// 입력한 값이 몬스터를 대상으로 했으며, 해당 대상의 체력이 존재할 경우.
 	if (0 <= _iAttack && m_allow > _iAttack && monster[_iAttack].GetHp() > 0)
 	{
@@ -121,7 +117,7 @@ bool FieldInfo::Decision()
 	int save = m_alliveMonster;
 	m_alliveMonster = m_allow;
 
-	Monster* monster = dynamic_cast<Monster*>(m_monster);
+	Monster* monster = static_cast<Monster*>(m_monster);
 	// 전체 할당 몬스터에서 현재 죽은 몬스터만큼 제외
 	for (int i = 0; i < m_allow; ++i)
 	{
@@ -132,7 +128,7 @@ bool FieldInfo::Decision()
 		}
 	}
 
-	Player* player = dynamic_cast<Player*>(m_player);
+	Player* player = static_cast<Player*>(m_player);
 	// 기존에 생존한 몬스터보다 현재 생존한 몬스터 수가 적을 경우 경험치 증가
 	if (save > m_alliveMonster)
 	{
@@ -162,9 +158,4 @@ bool FieldInfo::Decision()
 	return false;
 	
 	
-}
-
-// virtual
-void FieldInfo::Debuff()
-{
 }

@@ -11,34 +11,6 @@ Character::Character(const char _name[], int _maxHp, int _damage)
 	strcpy_s(m_name, sizeof(m_name), _name);
 }
 
-int Character::GetState()
-{
-	return m_state;
-}
-
-void Character::AddState(int _buff)
-{
-	m_state |= _buff;
-}
-
-void Character::RemoveState(int _buff)
-{
-	m_state &= ~_buff;
-}
-
-void Character::Initialize(const char _name[], int _maxHp, int _damage, int _returnExp)
-{
-}
-
-void Character::ShowInfo() const
-{
-}
-
-void Character::ShowInfo(int _i) const
-{
-}
-
-
 // 외부 함수 선언
 int GetRandomNum(int _first, int _second)
 {
