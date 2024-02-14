@@ -37,8 +37,8 @@ public:
 	void AddEquipItem(int _rankChoice, int _wa);
 
 	// 장비 변경
-	void ChangeWeapon();
-	void ChangeArmor();
+	int ChangeWeapon();
+	int ChangeArmor();
 
 	// 소지금 추가
 	void AddMoney(int _money) { m_money += _money; }

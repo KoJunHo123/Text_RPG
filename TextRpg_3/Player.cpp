@@ -131,6 +131,8 @@ void Player::OpenInventory()
 			ShowInfo();
 			m_inven.ShowEquip();
 
+			int addStat = 0;
+
 			int iInput = 0;
 			cout << "1. 무기 변경    2. 갑옷 변경    3. 돌아가기" << endl;
 			cin >> iInput;
@@ -138,11 +140,11 @@ void Player::OpenInventory()
 			switch (iInput)
 			{
 			case (int)EQUIP::WEAPON:
-				m_inven.ChangeWeapon();
+				m_damage += m_inven.ChangeWeapon();
 				break;
 
 			case (int)EQUIP::ARMOR:
-				m_inven.ChangeArmor();
+				m_maxHp += m_inven.ChangeArmor();
 				break;
 
 			case (int)EQUIP::BACK:
@@ -177,6 +179,10 @@ void Player::UseItemEffect(int _iInput)
 		{
 			cout << "중독을 해제하였습니다." << endl;
 			m_state &= ~POISON;
+		}
+		else
+		{
+			cout << "아무일도 일어나지 않았습니다." << endl;
 		}
 		break;
 

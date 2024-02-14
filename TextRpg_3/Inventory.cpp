@@ -15,11 +15,13 @@ void Inventory::AddEquipItem(int _rankChoice, int _wa)
 	m_item.AddEquipmentItem(_rankChoice, _wa);
 }
 
-void Inventory::ChangeWeapon()
+int Inventory::ChangeWeapon()
 {
 	int iInput = 0;
 	cout << "1. 오래된 무기    2. 새로운 무기    3. 튼튼한 무기    4. 돌아가기 : ";
 	cin >> iInput;
+
+	int save = m_wear.weapon.addDmg;
 
 	switch (iInput)
 	{
@@ -31,6 +33,7 @@ void Inventory::ChangeWeapon()
 			m_wear.weapon = m_item.GetEquipWeapon(iInput);
 			cout << "아이템이 변경되었습니다." << endl;
 			system("pause");
+			return (m_wear.weapon.addDmg - save);
 		}
 		else
 		{
@@ -40,15 +43,18 @@ void Inventory::ChangeWeapon()
 		break;
 
 	case (int)EQUIPRANK::BACK:
-		return;
+		break;
 	}
+	return 0;
 }
 
-void Inventory::ChangeArmor()
+int Inventory::ChangeArmor()
 {
 	int iInput = 0;
 	cout << "1. 오래된 갑옷    2. 새로운 갑옷    3. 튼튼한 갑옷    4. 돌아가기 : ";
 	cin >> iInput;
+
+	int save = m_wear.armor.addHP;
 
 	switch (iInput)
 	{
@@ -56,14 +62,20 @@ void Inventory::ChangeArmor()
 	case (int)EQUIPRANK::NEW:
 	case (int)EQUIPRANK::HARD:
 		if (m_item.CheckArmor(iInput))
+		{
 			m_wear.armor = m_item.GetEquipArmor(iInput);
+			cout << "아이템이 변경되었습니다." << endl;
+			system("pause");
+			return (m_wear.armor.addHP - save);
+		}
 		else
 			cout << "아이템이 없습니다." << endl;
 		break;
 
 	case (int)EQUIPRANK::BACK:
-		return;
+		break;
 	}
+	return 0;
 }
 
 void Inventory::ShowInventory()const
@@ -83,5 +95,3 @@ void Inventory::ShowEquip() const
 	m_item.ShowEquipmentItem();
 	cout << "소지금액	: " << m_money << endl;
 }
-
-

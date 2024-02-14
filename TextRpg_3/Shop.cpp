@@ -41,43 +41,49 @@ void Shop::Update()
 
 void Shop::SellConsumable()
 {
-	system("cls");
-	cout << "=====================" << endl;
-	cout << "소비 아이템" << endl;
-	cout << "=====================" << endl;
-	m_item.ShowConsumableItemPrice();
-
-	int iInput = 0;
-	cout << "1. 빨간 포션    2. 해독제    3. 붕대    4. 청심환    5. 돌아가기 : ";
-	cin >> iInput;
-
-	Player* player = static_cast<Player*>(m_player);
-
-	int itemPrice = m_item.GetPrice(1, iInput, 0);
-
-	switch (iInput)
+	while (true)
 	{
-	case (int)CONSUMABLE::REDP:
-	case (int)CONSUMABLE::ANTI:
-	case (int)CONSUMABLE::BAND:
-	case (int)CONSUMABLE::MENTAL:
-		if (player->GetMoney() >= itemPrice)
+		system("cls");
+		cout << "=====================" << endl;
+		cout << "소비 아이템" << endl;
+		cout << "=====================" << endl;
+		m_item.ShowConsumableItemPrice();
+
+		int iInput = 0;
+		cout << "1. 빨간 포션    2. 해독제    3. 붕대    4. 청심환    5. 돌아가기 : ";
+		cin >> iInput;
+
+		Player* player = static_cast<Player*>(m_player);
+
+		int itemPrice = m_item.GetPrice(1, iInput, 0);
+
+		switch (iInput)
 		{
-			player->UseMoney(itemPrice);
-			player->AddItem(iInput);
+		case (int)CONSUMABLE::REDP:
+		case (int)CONSUMABLE::ANTI:
+		case (int)CONSUMABLE::BAND:
+		case (int)CONSUMABLE::MENTAL:
+			if (player->GetMoney() >= itemPrice)
+			{
+				player->UseMoney(itemPrice);
+				player->AddItem(iInput);
+				cout << "구매 완료" << endl;
+				system("pause");
+			}
+			else
+			{
+				cout << "소지금이 부족합니다" << endl;
+				system("pause");
+			}
+			break;
+		case (int)CONSUMABLE::RETURN:
+			return;
+		default:
+			InErr;
+			break;
 		}
-		else
-		{
-			cout << "소지금이 부족합니다" << endl;
-			system("pause");
-		}
-		break;
-	case (int)CONSUMABLE::RETURN:
-		return;
-	default:
-		InErr;
-		break;
 	}
+	return;
 }
 
 void Shop::SellEquipment()
@@ -112,6 +118,7 @@ void Shop::SellEquipment()
 			{
 				player->UseMoney(itemPrice);
 				player->AddEquipItem(iInput, purchase);
+				system("pause");
 			}
 			else
 			{

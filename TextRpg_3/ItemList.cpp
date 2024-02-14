@@ -59,8 +59,8 @@ bool ItemList::UseConsumableItem(int _input)
         break;
 
     case (int)CONSUMABLE::ANTI:
-        if (0 < m_redPotion.count)
-            --m_redPotion.count;
+        if (0 < m_antiPoison.count)
+            --m_antiPoison.count;
         else
         {
             cout << "소지한 아이템이 없습니다." << endl;
@@ -69,8 +69,8 @@ bool ItemList::UseConsumableItem(int _input)
         break;
 
     case (int)CONSUMABLE::BAND:
-        if (0 < m_redPotion.count)
-            --m_redPotion.count;
+        if (0 < m_bandage.count)
+            --m_bandage.count;
         else
         {
             cout << "소지한 아이템이 없습니다." << endl;
@@ -79,8 +79,8 @@ bool ItemList::UseConsumableItem(int _input)
         break;
 
     case (int)CONSUMABLE::MENTAL:
-        if (0 < m_redPotion.count)
-            --m_redPotion.count;
+        if (0 < m_mentalCare.count)
+            --m_mentalCare.count;
         else
         {
             cout << "소지한 아이템이 없습니다." << endl;
@@ -197,7 +197,6 @@ void ItemList::ChoiceWeaponOrArmor(tWeapon& _weapon, tArmor& _armor, int _iInput
         else
         {
             cout << "이미 소지중입니다." << endl;
-            system("pause");
         }
         break;
 
@@ -210,7 +209,6 @@ void ItemList::ChoiceWeaponOrArmor(tWeapon& _weapon, tArmor& _armor, int _iInput
         else
         {
             cout << "이미 소지중입니다." << endl;
-            system("pause");
         }
         break;
 
@@ -221,7 +219,7 @@ void ItemList::ChoiceWeaponOrArmor(tWeapon& _weapon, tArmor& _armor, int _iInput
 
 void ItemList::ShowConsumableItem() const
 {
-    cout << "붉은 포션	: " << m_redPotion.count << endl;
+    cout << "빨간 포션	: " << m_redPotion.count << endl;
     cout << "해독제		: " << m_antiPoison.count << endl;
     cout << "붕대		: " << m_bandage.count << endl;
     cout << "청심환		: " << m_mentalCare.count << endl;
@@ -229,7 +227,7 @@ void ItemList::ShowConsumableItem() const
 
 void ItemList::ShowConsumableItemPrice() const
 {
-    cout << "붉은 포션	: " << m_redPotion.price << " Gold" << endl;
+    cout << "빨간 포션	: " << m_redPotion.price << " Gold" << endl;
     cout << "해독제		: " << m_antiPoison.price << " Gold" << endl;
     cout << "붕대		: " << m_bandage.price << " Gold" << endl;
     cout << "청심환		: " << m_mentalCare.price << " Gold" << endl;
@@ -274,10 +272,10 @@ bool ItemList::CheckWeapon(int _input)
         return m_oldWeapon.own;
 
     case (int)EQUIPRANK::NEW:
-        return m_oldWeapon.own;
+        return m_newWeapon.own;
 
     case (int)EQUIPRANK::HARD:
-        return m_oldWeapon.own;
+        return m_hardWeapon.own;
 
     }
 }
@@ -294,43 +292,42 @@ bool ItemList::CheckArmor(int _input)
 
     case (int)EQUIPRANK::HARD:
         return m_hardArmor.own;
-
     }
 }
 
 void ItemList::ShowEquipmentItem() const
 {
-    cout << "오래된 무기 : ";
+    cout << m_oldWeapon.name << " : ";
     if (m_oldWeapon.own)
         cout << "소지중" << endl;
     else
         cout << "미소지중" << endl;
 
-    cout << "오래된 갑옷 : ";
+    cout << m_oldArmor.name << " : ";
     if (m_oldArmor.own)
         cout << "소지중" << endl;
     else
         cout << "미소지중" << endl;
 
-    cout << "새로운 무기 : ";
+    cout << m_newWeapon.name << " : ";
     if (m_newWeapon.own)
         cout << "소지중" << endl;
     else
         cout << "미소지중" << endl;
 
-    cout << "새로운 갑옷 : ";
+    cout << m_newArmor.name << " : ";
     if (m_newArmor.own)
         cout << "소지중" << endl;
     else
         cout << "미소지중" << endl;
     
-    cout << "튼튼한 무기 : ";
+    cout << m_hardWeapon.name << " : ";
     if (m_hardWeapon.own)
         cout << "소지중" << endl;
     else
         cout << "미소지중" << endl;
 
-    cout << "튼튼한 갑옷 : ";
+    cout << m_hardArmor.name << " : ";
     if (m_hardArmor.own)
         cout << "소지중" << endl;
     else
@@ -342,18 +339,18 @@ void ItemList::ShowEquipmentItemPrice(int _iInput) const
     switch (_iInput)
     {
     case (int)EQUIPRANK::OLD:
-        cout << "오래된 무기 : " << m_oldWeapon.price << " Gold" << endl;
-        cout << "오래된 갑옷 : " << m_oldArmor.price << " Gold" << endl;
+        cout << m_oldWeapon.name << " : " << m_oldWeapon.price << " Gold" << endl;
+        cout << m_oldArmor.name << " : " << m_oldArmor.price << " Gold" << endl;
         break;
 
     case (int)EQUIPRANK::NEW:
-        cout << "새로운 무기 : " << m_oldWeapon.price << " Gold" << endl;
-        cout << "새로운 갑옷 : " << m_oldArmor.price << " Gold" << endl;
+        cout << m_newWeapon.name << " : " << m_newWeapon.price << " Gold" << endl;
+        cout << m_newArmor.name << " : " << m_newArmor.price << " Gold" << endl;
         break;
 
     case (int)EQUIPRANK::HARD:
-        cout << "튼튼한 무기 : " << m_oldWeapon.price << " Gold" << endl;
-        cout << "튼튼한 갑옷 : " << m_oldArmor.price << " Gold" << endl;
+        cout << m_hardWeapon.name << " : " << m_hardWeapon.price << " Gold" << endl;
+        cout << m_hardArmor.name << " : " << m_hardArmor.price << " Gold" << endl;
         break;
     }
 }
