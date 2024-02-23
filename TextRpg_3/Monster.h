@@ -13,14 +13,14 @@ public:
 		, m_returnMoney()
 	{}
 
-	Monster(const char _name[], int _maxHp, int _damage);
+	Monster(string _name, int _maxHp, int _damage);
 
-	virtual ~Monster() {}
+	~Monster() {}
 
 
 public:
 	// 초기화
-	void Initialize(const char _name[], int _maxHp, int _damage);
+	void Initialize(string _name, int _maxHp, int _damage);
 	// 정보 출력
 	void ShowInfo(int _i)const;
 

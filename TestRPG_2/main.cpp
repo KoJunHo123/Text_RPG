@@ -5,7 +5,6 @@ int main()
 {
 	setlocale(LC_ALL, "korean");
 
-
 	GameManager gm;
 
 	gm.StratGame();

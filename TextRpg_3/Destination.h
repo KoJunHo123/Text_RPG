@@ -1,6 +1,8 @@
 #pragma once
 #include "Field.h"
 #include "Shop.h"
+// #include "Shop_2.h"
+#include "Labyrinth.h"
 
 #include "Enum.h"
 #include "Define.h"
@@ -8,18 +10,20 @@
 class Destination
 {
 private:
-	int m_iInput;	// 목적지 저장... 왜 했더라...?
-
 	Field* m_field;
 	Shop* m_shop;
 	Character* m_player;
+	Labyrinth* m_labyrinth;
+
+	// Shop_2* m_shop_2;
 
 public:
 	Destination()
-		: m_iInput(0)
-		, m_field(nullptr)
+		: m_field(nullptr)
 		, m_shop(nullptr)
 		, m_player(nullptr)
+		, m_labyrinth(nullptr)
+		// , m_shop_2(nullptr)
 	{}
 
 	~Destination();
@@ -27,6 +31,8 @@ public:
 public:
 	void Initialize(Character* _player);
 	void Update();
-	void Release();
+
+	template <typename T>
+	void Release(T& _release);
 };
 

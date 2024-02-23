@@ -11,6 +11,8 @@ struct WearItem
 	tArmor armor;
 };
 
+// - 인벤토리 : 5칸. 아이템 저장. 구매. 판매.
+
 class Inventory
 {
 private:
@@ -23,19 +25,18 @@ public:
 	Inventory()
 		: m_item{}
 		, m_wear{}
-		, m_money(1000000)
+		, m_money(0)
 	{}
 	~Inventory() {}
 
 public:
-	bool UseItem(int _choice);
-	void AddItem(int _choice);
+	bool UseItem(int _choice) { return m_item.UseConsumableItem(_choice); }
+	void AddItem(int _choice) { m_item.AddConsumableItem(_choice); }
 	void ShowInventory()const;
 	void ShowEquip() const;
 
 	// 장비 추가
-	void AddEquipItem(int _rankChoice, int _wa);
-
+	void AddEquipItem(int _rankChoice, int _wa) { m_item.AddEquipmentItem(_rankChoice, _wa); }
 	// 장비 변경
 	int ChangeWeapon();
 	int ChangeArmor();

@@ -1,20 +1,5 @@
 #include "Inventory.h"
 
-bool Inventory::UseItem(int _choice)
-{
-	return m_item.UseConsumableItem(_choice);
-}
-
-void Inventory::AddItem(int _choice)
-{
-	m_item.AddConsumableItem(_choice);
-}
-
-void Inventory::AddEquipItem(int _rankChoice, int _wa)
-{
-	m_item.AddEquipmentItem(_rankChoice, _wa);
-}
-
 int Inventory::ChangeWeapon()
 {
 	int iInput = 0;

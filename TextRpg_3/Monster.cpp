@@ -1,6 +1,6 @@
 #include "Monster.h"
 
-Monster::Monster(const char _name[], int _maxHp, int _damage)
+Monster::Monster(string _name, int _maxHp, int _damage)
 	: Character(_name, _maxHp, _damage)
 	, m_returnExp(0)
 	, m_returnMoney(0)
@@ -8,9 +8,9 @@ Monster::Monster(const char _name[], int _maxHp, int _damage)
 
 }
 
-void Monster::Initialize(const char _name[], int _maxHp, int _damage)
+void Monster::Initialize(string _name, int _maxHp, int _damage)
 {
-	strcpy_s(m_name, sizeof(m_name), _name);
+	m_name = _name;
 	m_hp = _maxHp;
 	m_maxHp = _maxHp;
 	m_damage = _damage;

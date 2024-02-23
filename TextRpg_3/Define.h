@@ -13,6 +13,16 @@
 
 #define INVENTORY	0
 
+//struct item
+//{
+//	bool itemType; // 0 -> 무기, 1 -> 갑빠
+//	char name[32];
+//	int damage;
+//	int hp;
+//	int price;
+//
+//};
+
 #endif // !InErr
 
 // 랜덤한 숫자 가져오기

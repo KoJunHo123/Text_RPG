@@ -2,15 +2,17 @@
 
 #include <iostream>
 #include <random>
+#include <string>
 
 #include "Define.h"
 
 using namespace std;
+using std::system;
 
-class Character abstract
+class Character
 {
 protected:
-	char	m_name[32];
+	string	m_name;
 	int		m_hp;
 	int		m_maxHp;
 	int		m_damage;
@@ -26,7 +28,7 @@ public:
 		, m_state(0)
 	{}
 
-	Character(const char _name[], int _maxHp, int _damage);
+	Character(string _name, int _maxHp, int _damage);
 
 	virtual ~Character() {}
 
@@ -47,7 +49,7 @@ public:
 	void RemoveState(int _buff) { m_state &= ~_buff; }
 
 	// 플레이어/몬스터 초기화
-	virtual void Initialize(const char _name[], int _maxHp, int _damage) = 0;
+	virtual void Initialize(string _name, int _maxHp, int _damage) = 0;
 	
 	// 플레이어와 몬스터에서 부르는 함수가 다르기 때문에 순수 가상 함수를 써서는 안 됨.
 	// 플레이어 정보 출력

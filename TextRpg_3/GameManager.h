@@ -37,6 +37,6 @@ private:
 	void SaveChoice();
 
 
-	//void SaveFile();
-	//void LoadFile();
+	void SaveFile();
+	void LoadFile();
 };

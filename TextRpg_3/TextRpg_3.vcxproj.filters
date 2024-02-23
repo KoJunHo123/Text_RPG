@@ -52,6 +52,12 @@
     <Filter Include="07.ItemList">
       <UniqueIdentifier>{47b2e11c-341d-4020-a071-2b093569eb5b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="08.Labyrinth">
+      <UniqueIdentifier>{1f028fe0-5687-44f9-866a-d49007e05e7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10. Shop_2">
+      <UniqueIdentifier>{c92b9d4e-f972-4958-9906-626fe85e1cbd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -95,6 +101,12 @@
     </ClCompile>
     <ClCompile Include="ItemList.cpp">
       <Filter>07.ItemList</Filter>
+    </ClCompile>
+    <ClCompile Include="Labyrinth.cpp">
+      <Filter>08.Labyrinth</Filter>
+    </ClCompile>
+    <ClCompile Include="Shop_2.cpp">
+      <Filter>10. Shop_2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +154,12 @@
     </ClInclude>
     <ClInclude Include="ItemList.h">
       <Filter>07.ItemList</Filter>
+    </ClInclude>
+    <ClInclude Include="Labyrinth.h">
+      <Filter>08.Labyrinth</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop_2.h">
+      <Filter>10. Shop_2</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

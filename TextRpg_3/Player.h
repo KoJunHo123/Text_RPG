@@ -13,7 +13,16 @@ private:
 	int			m_exp;
 	int			m_maxExp;
 
-	Inventory	m_inven;
+	Inventory		m_inven;
+
+#pragma region ºÎ·ªºÎ·ª
+	//vector<item>	m_inven_2;
+
+	//item m_weapon;
+	//item m_armor;
+
+	//int m_money;
+#pragma endregion ¸¸µç °Íµé
 
 public:
 	Player()
@@ -21,9 +30,13 @@ public:
 		, m_exp(0)
 		, m_maxExp(50)
 		, m_inven{}
+#pragma region ºÎ·ªºÎ·ª
+		//, m_inven_2{}
+		//, m_money(0)
+#pragma endregion ¸¸µç°Íµé
 	{}
 
-	Player(const char _name[], int _maxHp, int _damage);
+	Player(string _name, int _maxHp, int _damage);
 
 	virtual ~Player() {}
 
@@ -32,7 +45,7 @@ private:
 	// int GetRandomNum(int _first, int _second);
 
 public:
-	void Initialize(const char _name[], int _maxHp, int _damage);
+	void Initialize(string _name, int _maxHp, int _damage);
 
 	void CalculateExp(int _getExp);
 	bool DebuffEffect();
@@ -48,6 +61,18 @@ public:
 	int GetMoney() { return m_inven.GetMoney(); }
 	void UseMoney(int _money) { m_inven.UseMoney(_money); }
 
-	/*void SavePlayer(ofstream& _file);
-	void LoadPlayer(ifstream& _file);*/
+#pragma region ºÎ·ªºÎ·ª
+	//void BuyItem(item _item);
+	//void SellItem();
+	//void ShowInventory();
+
+	//void SetWeapon(item _weapon);
+	//void SetArmor(item _armor);
+
+	//void SetItem();
+#pragma endregion ¸¸µç °Íµé
+
+	void SavePlayer(ofstream& _file);
+	void LoadPlayer(ifstream& _file);
+	void CopyPlayerData(Player* _player);
 };

@@ -1,19 +1,24 @@
 #include "Player.h"
 
-Player::Player(const char _name[], int _maxHp, int _damage)
+Player::Player(string _name, int _maxHp, int _damage)
 	: Character(_name, _maxHp, _damage)
 	, m_level(1)
 	, m_exp(0)
 	, m_maxExp(50)
 	, m_inven{}
+
+	//, m_inven_2{}
+	//, m_money(0)
+	//, m_armor{}
+	//, m_weapon{}
 {
 }
 
 
 
-void Player::Initialize(const char _name[], int _maxHp, int _damage)
+void Player::Initialize(string _name, int _maxHp, int _damage)
 {
-	strcpy_s(m_name, sizeof(m_name), _name);
+	m_name = _name;
 	m_hp = _maxHp;
 	m_maxHp = _maxHp;
 	m_damage = _damage;
@@ -21,6 +26,8 @@ void Player::Initialize(const char _name[], int _maxHp, int _damage)
 	m_exp = 0;
 	m_maxExp = 50;
 	m_inven = {};
+	//m_inven_2.reserve(5);
+	//m_money = 1000;
 }
 
 void Player::CalculateExp(int _getExp)
@@ -192,6 +199,10 @@ void Player::UseItemEffect(int _iInput)
 			cout << "출혈을 해제하였습니다." << endl;
 			m_state &= ~BLOODY;
 		}
+		else
+		{
+			cout << "아무일도 일어나지 않았습니다." << endl;
+		}
 		break;
 
 	case (int)CONSUMABLE::MENTAL:
@@ -199,6 +210,10 @@ void Player::UseItemEffect(int _iInput)
 		{
 			cout << "공포를 해제하였습니다." << endl;
 			m_state &= ~FEAR;
+		}
+		else
+		{
+			cout << "아무일도 일어나지 않았습니다." << endl;
 		}
 		break;
 
@@ -211,15 +226,143 @@ void Player::UseItemEffect(int _iInput)
 	}
 	
 }
-//
-//void Player::SavePlayer(ofstream& _file)
+
+#pragma region 부랴부랴
+//void Player::BuyItem(item _item)
 //{
-//	_file.write(reinterpret_cast<const char*>(this), sizeof(Player));		// write는 const char*를 인자로 받음.
+//	system("cls");
+//	if (5 > m_inven_2.size())
+//	{
+//		m_money -= _item.price;
+//		m_inven_2.push_back(_item);
+//		cout << "구매 완료" << endl;
+//	}
+//	else
+//		cout << "인벤토리에 공간이 없습니다." << endl;
+//	system("pause");
 //}
 //
-//void Player::LoadPlayer(ifstream& _file)
+//void Player::SellItem()
 //{
-//	_file.read(reinterpret_cast<char*>(this), sizeof(Player));		// read는 char*를 인자로 받음.
+//	system("cls");
+//	ShowInventory();
+//
+//	char name[32] = {};
+//	cout << "판매할 아이템 : " << endl;
+//	cin >> name;
+//	for (vector<item>::iterator iter = m_inven_2.begin(); iter != m_inven_2.end(); )
+//	{
+//		if (!strcmp(name, (*iter).name))
+//		{
+//			m_money += (*iter).price;
+//			iter = m_inven_2.erase(iter);
+//			cout << "판매 완료" << endl;
+//			system("pause");
+//		}
+//		else
+//			++iter;
+//	}
 //}
+//
+//void Player::ShowInventory()
+//{
+//	cout << "소지금 : " << m_money << "원" << endl;
+//	for (vector<item>::iterator iter = m_inven_2.begin(); iter != m_inven_2.end(); ++iter)
+//	{
+//		// 무기
+//		if (0 == (*iter).itemType)
+//		{
+//			cout << "이름 : " << (*iter).name << endl;
+//			cout << "공격력 : " << (*iter).damage << endl;
+//			cout << "가격 : " << (*iter).price << endl;
+//		}
+//		// 갑빠
+//		else
+//		{
+//			cout << "이름 : " << (*iter).name << endl;
+//			cout << "추가 체력 : " << (*iter).hp << endl;
+//			cout << "가격 : " << (*iter).price << endl;
+//		}
+//		cout << endl;
+//	}
+//}
+//
+//void Player::SetWeapon(item _weapon)
+//{
+//	if (m_weapon.damage == 0)
+//	{
+//		m_damage += _weapon.damage;
+//		m_weapon = _weapon;
+//	}
+//	
+//	else
+//	{
+//		m_damage -= m_weapon.damage;
+//		m_damage += _weapon.damage;
+//		m_weapon = _weapon;
+//	}
+//}
+//
+//void Player::SetArmor(item _armor)
+//{
+//	if (m_armor.hp == 0)
+//	{
+//		m_maxHp += _armor.hp;
+//		m_armor = _armor;
+//	}
+//	else
+//	{
+//		m_maxHp -= m_armor.hp;
+//		m_maxHp += _armor.hp;
+//		m_armor = _armor;
+//	}
+//}
+//
+//void Player::SetItem()
+//{
+//	system("cls");
+//	ShowInventory();
+//
+//	char name[32] = {};
+//	cout << "장착할 아이템 : ";
+//	cin >> name;
+//
+//	for (vector<item>::iterator iter = m_inven_2.begin(); iter != m_inven_2.end(); ++iter)
+//	{
+//		if (!strcmp(name, (*iter).name))
+//		{
+//			if (0 == (*iter).itemType)
+//				SetWeapon(*iter);
+//			else
+//				SetArmor(*iter);
+//
+//		}
+//	}
+//}
+#pragma endregion 만든 것들
+
+
+void Player::SavePlayer(ofstream& _file)
+{
+	_file.write(reinterpret_cast<const char*>(this), sizeof(Player));		// write는 const char*를 인자로 받음.
+}
+
+void Player::LoadPlayer(ifstream& _file)
+{
+	_file.read(reinterpret_cast<char*>(this), sizeof(Player));		// read는 char*를 인자로 받음.
+}
+
+void Player::CopyPlayerData(Player* _player)
+{
+	m_name = _player->m_name;
+	m_hp = _player->m_hp;
+	m_maxHp = _player->m_maxHp;
+	m_damage = _player->m_damage;
+	m_state = _player->m_state;
+	m_level = _player->m_level;
+	m_exp = _player->m_exp;
+	m_maxExp = _player->m_maxExp;
+	m_inven = _player->m_inven;
+}
 
 

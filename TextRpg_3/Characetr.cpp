@@ -1,14 +1,13 @@
 #include "Characetr.h"
 
 
-Character::Character(const char _name[], int _maxHp, int _damage)
-	: m_name{}
+Character::Character(string _name, int _maxHp, int _damage)
+	: m_name(_name)
 	, m_hp(_maxHp)
 	, m_maxHp(_maxHp)
 	, m_damage(_damage)
 	, m_state(0)
 {
-	strcpy_s(m_name, sizeof(m_name), _name);
 }
 
 // 외부 함수 선언
@@ -27,3 +26,4 @@ int GetRandomNum(int _first, int _second)
 
 	return dis(gen);
 }
+

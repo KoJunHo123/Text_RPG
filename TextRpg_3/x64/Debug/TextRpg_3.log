@@ -1,4 +1,23 @@
-﻿  Player.cpp
+﻿  Characetr.cpp
+  Destination.cpp
+  Field.cpp
+  FieldInfo.cpp
+  GameManager.cpp
+  GoblinForest.cpp
+  Inventory.cpp
+  ItemList.cpp
+  Labyrinth.cpp
+  main.cpp
+  Monster.cpp
+  OrcVillage.cpp
+  OrgerMountain.cpp
+  Player.cpp
   Shop.cpp
   코드를 생성하고 있습니다...
+C:\Users\wnsgh\GitHub\Text_RPG\TextRpg_3\ItemList.cpp(185): warning C4715: 'ItemList::GetPrice': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\wnsgh\GitHub\Text_RPG\TextRpg_3\ItemList.cpp(26): warning C4715: 'ItemList::GetConsumableItem': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\wnsgh\GitHub\Text_RPG\TextRpg_3\ItemList.cpp(265): warning C4715: 'ItemList::GetEquipArmor': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\wnsgh\GitHub\Text_RPG\TextRpg_3\ItemList.cpp(250): warning C4715: 'ItemList::GetEquipWeapon': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\wnsgh\GitHub\Text_RPG\TextRpg_3\ItemList.cpp(281): warning C4715: 'ItemList::CheckWeapon': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\wnsgh\GitHub\Text_RPG\TextRpg_3\ItemList.cpp(296): warning C4715: 'ItemList::CheckArmor': 모든 제어 경로에서 값을 반환하지는 않습니다.
   TextRpg_3.vcxproj -> C:\Users\wnsgh\GitHub\Text_RPG\TextRpg_3\x64\Debug\TextRpg_3.exe

@@ -29,6 +29,7 @@ enum class DEST
 {
 	FIELD = 1,
 	SHOP,
+	LABYRINTH,
 	BACK
 };
 

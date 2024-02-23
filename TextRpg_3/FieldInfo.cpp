@@ -38,7 +38,7 @@ void FieldInfo::Update()
 			cout << "도주하였습니다!" << endl;
 			Release();
 			system("pause");
-			return;
+ 			return;
 
 		default:
 			InErr;

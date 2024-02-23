@@ -32,22 +32,24 @@ void Field::Update()
 			m_fieldInfo = new GoblinForest;
 			m_fieldInfo->Initialize(m_player);
 			m_fieldInfo->Update();
+			Release();
 			break;
 
 		case (int)FIELD::ORC:
 			m_fieldInfo = new OrcVillage;
 			m_fieldInfo->Initialize(m_player);
 			m_fieldInfo->Update();
+			Release();
 			break;
 
 		case (int)FIELD::ORGER:
 			m_fieldInfo = new OrgerMountain;
 			m_fieldInfo->Initialize(m_player);
 			m_fieldInfo->Update();
+			Release();
 			break;
 
 		case (int)FIELD::BACK:
-			Release();
 			return;
 
 		default:
