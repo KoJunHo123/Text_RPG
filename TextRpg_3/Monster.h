@@ -10,7 +10,7 @@ private:
 public:
 	Monster()
 		: m_returnExp(0)
-		, m_returnMoney()
+		, m_returnMoney(0)
 	{}
 
 	Monster(string _name, int _maxHp, int _damage);

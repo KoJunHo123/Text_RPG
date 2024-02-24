@@ -2,24 +2,23 @@
 
 void OrcVillage::Initialize(Character* _player)
 {
-	m_allow = GetRandomNum(1, 2);
+	m_allow = GetRandomNum(1, 3);
 
-	m_monster = new Monster[m_allow];
 	m_player = _player;
 
-	Monster* monster = static_cast<Monster*>(m_monster);
+
 	for (int i = 0; i < m_allow; ++i)
 	{
-		monster[i].Initialize("오크", 60, 6);
+		m_monster.push_back(new Monster);
+		dynamic_cast<Monster*>(m_monster[i])->Initialize("오크", 60, 6);
+		dynamic_cast<Monster*>(m_monster[i])->SetReturnMoney(200);
 	}
 
-	m_debuff |= BLOODY;
+	m_monIter = m_monster.begin();
 
-	m_debuffPer = 20;
+	m_debuff |= POISON;
+	m_debuffPer = 30;
 
-	m_alliveMonster = m_allow;
-
-	monster->SetReturnMoney(200);
 }
 
 void OrcVillage::Update()
@@ -29,7 +28,7 @@ void OrcVillage::Update()
 
 void OrcVillage::Release()
 {
-	Safe_Delete_Arr(m_monster);
+
 }
 
 

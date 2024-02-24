@@ -50,14 +50,14 @@ void Labyrinth::ShowMaze()
 		{
 			if (i == m_location[0] && j == m_location[1])
 			{
-				cout << 1 << " ";
+				cout << '@' << " ";
 				continue;
 			}
 
 			if (1 == m_maze.t_route[i][j])
 				cout << ' ' << " ";
 			else
-				cout << m_maze.t_route[i][j] << " ";
+				cout << '*' << " ";
 		}
 		cout << endl;
 	}

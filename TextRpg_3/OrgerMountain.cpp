@@ -2,24 +2,22 @@
 
 void OrgerMountain::Initialize(Character* _player)
 {
-	m_allow = GetRandomNum(1, 1);
+	m_allow = GetRandomNum(1, 3);
 
-	m_monster = new Monster[m_allow];
 	m_player = _player;
 
-	Monster* monster = static_cast<Monster*>(m_monster);
+
 	for (int i = 0; i < m_allow; ++i)
 	{
-		monster[i].Initialize("오우거", 90, 9);
+		m_monster.push_back(new Monster);
+		dynamic_cast<Monster*>(m_monster[i])->Initialize("오우거", 90, 9);
+		dynamic_cast<Monster*>(m_monster[i])->SetReturnMoney(300);
 	}
 
-	m_debuff |= FEAR;
+	m_monIter = m_monster.begin();
 
-	m_debuffPer = 20;
-
-	m_alliveMonster = m_allow;
-
-	monster->SetReturnMoney(300);
+	m_debuff |= POISON;
+	m_debuffPer = 30;
 
 }
 
@@ -30,7 +28,7 @@ void OrgerMountain::Update()
 
 void OrgerMountain::Release()
 {
-	Safe_Delete_Arr(m_monster);
+
 }
 
 
