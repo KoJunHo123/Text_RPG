@@ -14,8 +14,6 @@ Player::Player(string _name, int _maxHp, int _damage)
 {
 }
 
-
-
 void Player::Initialize(string _name, int _maxHp, int _damage)
 {
 	m_name = _name;
@@ -112,14 +110,14 @@ void Player::OpenInventory()
 
 	if (1 == choice)
 	{
+		int iInput = 0;
 		bool useInventory = true;
-		while (useInventory)
+		while (5 != iInput)
 		{
 			system("cls");
 			ShowInfo();
 			m_inven.ShowInventory();
 
-			int iInput = 0;
 			cout << "1. »¡°£ Æ÷¼Ç    2. ÇØµ¶Á¦    3. ºØ´ë    4. Ã»½ÉÈ¯    5. µ¹¾Æ°¡±â : ";
 			cin >> iInput;
 			if (5 == iInput)
@@ -159,9 +157,7 @@ void Player::OpenInventory()
 			}
 		}
 	}
-	
 }
-
 
 
 void Player::UseItemEffect(int _iInput)
@@ -224,7 +220,6 @@ void Player::UseItemEffect(int _iInput)
 		InErr;
 		break;
 	}
-	
 }
 
 #pragma region ºÎ·ªºÎ·ª

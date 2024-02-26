@@ -31,15 +31,20 @@ void ItemList::AddConsumableItem(int _input)
     {
     case (int)CONSUMABLE::REDP:
         ++m_redPotion.count;
+        break;
 
     case (int)CONSUMABLE::ANTI:
         ++m_antiPoison.count;
+        break;
 
     case (int)CONSUMABLE::BAND:
         ++m_bandage.count;
+        break;
 
     case (int)CONSUMABLE::MENTAL:
         ++m_mentalCare.count;
+        break;
+
     }
     return;
 }

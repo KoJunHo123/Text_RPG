@@ -87,15 +87,14 @@ void FieldInfo::Fight()
 
 void FieldInfo::DamageCalculate(int _iAttack)
 {
-	Player* player = static_cast<Player*>(m_player);
-	m_monIter = m_monster.begin() + _iAttack;
-	Monster* monster = static_cast<Monster*>(*m_monIter);
-
-
 	// 입력한 값이 몬스터를 대상으로 했으며, 해당 대상의 체력이 존재할 경우.
-	if (0 <= _iAttack && m_allow > _iAttack && monster->GetHp() > 0)
+	if (0 <= _iAttack && m_monster.size() > _iAttack)
 	{
-		m_player->HpCalculate(monster->GetDamage() * m_monster.size());
+		Player* player = static_cast<Player*>(m_player);
+		m_monIter = m_monster.begin() + _iAttack;
+		Monster* monster = static_cast<Monster*>(*m_monIter);
+		//m_player->HpCalculate(monster->GetDamage() * m_monster.size());
+		for_each(m_monster.begin(), m_monster.end(), *player);
 		cout << "플레이어가 " << monster->GetDamage() * m_monster.size() << "의 데미지를 받았습니다." << endl;
 		Debuff();
 		if (player->DebuffEffect())	// 공포 등의 디버프 판정 -> false나오면 실패
@@ -108,6 +107,7 @@ void FieldInfo::DamageCalculate(int _iAttack)
 	else
 	{
 		InErr;
+		return;
 	}
 
 }

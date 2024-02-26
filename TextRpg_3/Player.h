@@ -75,4 +75,9 @@ public:
 	void SavePlayer(ofstream& _file);
 	void LoadPlayer(ifstream& _file);
 	void CopyPlayerData(Player* _player);
+
+	void operator()(Character* _monster)
+	{
+		m_hp -= _monster->GetDamage();
+	}
 };
