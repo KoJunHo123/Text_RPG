@@ -8,6 +8,7 @@
 #include <vector>
 #include <ctime>
 #include <random>
+#include <algorithm>
 
 class FieldInfo abstract
 {
